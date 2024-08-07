@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1 august</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button.fadeToggle").click(function(){
+                $("#div1").fadeToggle(500);
+                $("#div2").fadeToggle(600);
+                $("#div3").fadeToggle(700);
+            });
+
+            $("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+
+            $("#startAnimation").click(function(){
+                $(".animateDiv").animate({left: '1000px'}, 2000);
+                $(".animateDiv").animate({fontSize: '9em'}, 2000);
+            });
+
+            $("#stopAnimation").click(function(){
+                $(".animateDiv").stop();
+            });
+
+            $("#stopAll").click(function(){
+                $(".animateDiv").stop(true);
+            });
+
+            $("#finishCurrent").click(function(){
+                $(".animateDiv").stop(true, true);
+            });
+
+            $("#resetAnimation").click(function(){
+                $(".animateDiv").stop(true, true).css({left: '0px', fontSize: '1em'});
+            });
+        });
+    </script>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        #panel, #flip {
+            padding: 10px;
+            text-align: center;
+            background-color: yellow;
+            border: solid 1px #444444;
+            color: black;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+
+        .animateDiv {
+            background: #3c3c3c;
+            height: 100px;
+            width: 200px;
+            position: absolute;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fadeBox {
+            width: 1600px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        #div1 { background-color: blue; }
+        #div2 { background-color: red; }
+        #div3 { background-color: white; }
+
+        button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Examples from jQuery 1 august</h1>
+
+<button class="fadeToggle">Click to fade boxes</button><br><br>
+
+<div id="div1" class="fadeBox"></div>
+<div id="div2" class="fadeBox"></div>
+<div id="div3" class="fadeBox"></div>
+
+<div id="flip">Up and down sliding panel</div>
+<div id="panel">Hello world</div>
+
+<button id="startAnimation">Start Animation</button>
+<button id="stopAnimation">Stop Animation</button>
+<button id="stopAll">Stop All</button>
+<button id="finishCurrent">Finish Current</button>
+<button id="resetAnimation">Reset Animation</button>
+
+<div class="animateDiv">HELLO WORLD</div>
+
+</body>
+</html>
